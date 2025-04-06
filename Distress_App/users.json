@@ -1,0 +1,35 @@
+[
+  {
+    "nid": "1234",
+    "password": "1234",
+    "name": "Md",
+    "phoneNumber": "123456",
+    "bloodGroup": "B-",
+    "age": 23,
+    "sex": "male",
+    "emergencyNumbers": [
+      "4455666",
+      "4354",
+      "435345345"
+    ],
+    "emergencyMails": [
+      "kmosabbir@gmail.com"
+    ]
+  },
+  {
+    "nid": "12345",
+    "password": "12345",
+    "name": "nabil",
+    "phoneNumber": "01715763678",
+    "bloodGroup": "o+ve",
+    "age": 22,
+    "sex": "M",
+    "emergencyNumbers": [
+      "01849853566"
+    ],
+    "emergencyMails": [
+      "kmosabbir@gmail.com",
+      " twaha.iqbal@gmail.com"
+    ]
+  }
+]
