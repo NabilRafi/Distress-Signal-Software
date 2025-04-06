@@ -26,10 +26,7 @@ public class SignIn extends Layout {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 450);
-
         setLocationRelativeTo(null); // Center on screen
-
-
     }
 
     private JPanel createForm() {
@@ -53,7 +50,7 @@ public class SignIn extends Layout {
         addLabelAndField(formPanel, "Password:", passwordText = new JPasswordField(20));
 
         signInButton = new JButton("Log In");
-        styleButton(signInButton, new Color(34, 193, 195));
+        styleButton(signInButton, new Color(34, 193, 195)); // Turquoise-blue
         formPanel.add(signInButton);
         formPanel.add(Box.createVerticalStrut(10));
 
@@ -72,15 +69,15 @@ public class SignIn extends Layout {
 
     private void addLabelAndField(JPanel panel, String labelText, JTextField textField) {
         JPanel fieldPanel = new JPanel(new BorderLayout());
-        fieldPanel.setOpaque(false); // So it blends with the white background
+        fieldPanel.setOpaque(false);
 
         JLabel label = new JLabel(labelText);
         label.setFont(new Font("Arial", Font.PLAIN, 16));
         label.setForeground(new Color(70, 70, 70));
-        label.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0)); // Space below label
+        label.setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 
         JPanel inputWrapper = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        inputWrapper.setOpaque(false); // Transparent background
+        inputWrapper.setOpaque(false);
         textField.setFont(new Font("Arial", Font.PLAIN, 16));
         textField.setPreferredSize(new Dimension(300, 35));
         textField.setBorder(BorderFactory.createLineBorder(new Color(200, 200, 200)));
@@ -95,7 +92,6 @@ public class SignIn extends Layout {
         panel.add(Box.createVerticalStrut(20));
     }
 
-
     private void styleButton(JButton button, Color bgColor) {
         button.setFont(new Font("Arial", Font.BOLD, 16));
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -103,9 +99,19 @@ public class SignIn extends Layout {
         button.setForeground(Color.WHITE);
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        button.setOpaque(true);
+        button.setContentAreaFilled(true);
+        button.setBorderPainted(false);
     }
 
     public static void main(String[] args) {
+        try {
+            // Use Nimbus Look and Feel for consistent styling
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         SwingUtilities.invokeLater(() -> {
             SignIn signIn = new SignIn();
             signIn.setVisible(true);

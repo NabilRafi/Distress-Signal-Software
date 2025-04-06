@@ -31,6 +31,9 @@ public class Home extends Layout {
         logoutButton.setForeground(Color.WHITE);
         logoutButton.setBackground(Color.RED);
         logoutButton.setFocusPainted(false);
+        logoutButton.setOpaque(true);
+        logoutButton.setContentAreaFilled(true);
+        logoutButton.setBorderPainted(false);
         navBar.add(logoutButton);
 
         // Add the nav bar to the top
@@ -43,10 +46,13 @@ public class Home extends Layout {
         // Create the distress button
         distressButton = new JButton("Distress Signal");
         distressButton.setFont(new Font("Arial", Font.BOLD, 30));
-        distressButton.setBackground(Color.RED);
         distressButton.setForeground(Color.WHITE);
+        distressButton.setBackground(new Color(220, 20, 60)); // Crimson red
         distressButton.setFocusPainted(false);
         distressButton.setPreferredSize(new Dimension(200, 100)); // Fixed size
+        distressButton.setOpaque(true);
+        distressButton.setContentAreaFilled(true);
+        distressButton.setBorderPainted(false);
 
         // Add the distress button to the center panel
         centerPanel.add(distressButton);
@@ -62,29 +68,32 @@ public class Home extends Layout {
     }
 
     private void addActionListeners() {
-        // ActionListener for the distress signal button
         distressButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the method to send distress signals
                 homeController.sendDistress();
             }
         });
 
-        // ActionListener for the logout button
         logoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Log out the user and navigate back to login view
                 UserSession.logOut();
                 JOptionPane.showMessageDialog(null, "Logged out successfully!");
-                // Add additional code here for navigation to login screen if needed
+                // Navigate back to login screen if needed
             }
         });
     }
 
     // Main method to test the Home view
     public static void main(String[] args) {
+        try {
+            // Set Nimbus Look and Feel for consistent button colors across platforms
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         SwingUtilities.invokeLater(() -> {
             Home home = new Home();
             home.setVisible(true);
